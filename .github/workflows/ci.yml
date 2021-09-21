@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  macos:
+    runs-on: macos-latest
+
+    strategy:
+      matrix:
+        xcode: ["12.5", "11.7"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Build and Test
+        run: swift test
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
+
+  linux:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        swift: ["5.3", "5.2", "5.1"]
+
+    container:
+      image: swift:${{ matrix.swift }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Install System Dependencies
+        run: |
+          apt-get update
+          apt-get install -y libxml2-dev
+      - name: Build and Test
+        run: swift test --enable-test-discovery
