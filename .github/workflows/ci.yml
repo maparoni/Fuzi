@@ -15,19 +15,20 @@ jobs:
         xcode: ["12.5.1", "11.7"]
 
     steps:
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "{{matrix.xcode}}"
       - name: Checkout
         uses: actions/checkout@v1
       - name: Build and Test
         run: swift test
-        env:
-          DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
 
   linux:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        swift: ["5.3", "5.2", "5.1"]
+        swift: ["5.4", "5.3", "5.2", "5.1"]
 
     container:
       image: swift:${{ matrix.swift }}
