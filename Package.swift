@@ -33,8 +33,8 @@ let package = Package(
   targets: systemLibraries + [
     .target(
       name: "Fuzi",
-      path: "Sources",
-      dependencies: ["libxml2"]),
+      dependencies: ["libxml2"],
+      path: "Sources"),
     .testTarget(
       name: "FuziTests",
       dependencies: ["Fuzi"],
