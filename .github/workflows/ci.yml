@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        xcode: ["12.5", "11.7"]
+        xcode: ["12.5.1", "11.7"]
 
     steps:
       - name: Checkout
