@@ -10,16 +10,11 @@ import XCTest
 
 extension XCTestCase {
   func loadData(filename: String, extension fileExtension: String) throws -> Data {
-    #if os(Linux)
     let thisSourceFile = URL(fileURLWithPath: #file)
     let thisDirectory = thisSourceFile.deletingLastPathComponent()
     let path = thisDirectory.appendingPathComponent("Resources", isDirectory: true)
       .appendingPathComponent(filename)
       .appendingPathExtension(fileExtension)
     return try Data(contentsOf: path)
-    #else
-    let filePath = Bundle(for: AtomTests.self).url(forResource: filename, withExtension: fileExtension)!
-    return try Data(contentsOf: filePath)
-    #endif
   }
 }
