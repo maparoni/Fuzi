@@ -1,15 +1,15 @@
 #ifndef LIBXML2_FUZI_H
 #define LIBXML2_FUZI_H
-#include <libxml/tree.h>
-#include <libxml/xmlreader.h>
-#include <libxml/xpath.h>
-#include <libxml/xpathInternals.h>
-#include <libxml/HTMLtree.h>
-#include <libxml/HTMLparser.h>
-#include <libxml/parser.h>
-#include <libxml/entities.h>
-#include <libxml/SAX.h>
-#include <libxml/SAX2.h>
+#include <libxml2/libxml/tree.h>
+#include <libxml2/libxml/xmlreader.h>
+#include <libxml2/libxml/xpath.h>
+#include <libxml2/libxml/xpathInternals.h>
+#include <libxml2/libxml/HTMLtree.h>
+#include <libxml2/libxml/HTMLparser.h>
+#include <libxml2/libxml/parser.h>
+#include <libxml2/libxml/entities.h>
+#include <libxml2/libxml/SAX.h>
+#include <libxml2/libxml/SAX2.h>
 
 #if defined(__ELF__)
 __asm__ (".section .swift1_autolink_entries,\"a\",@progbits\n"
